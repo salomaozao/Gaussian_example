@@ -173,7 +173,7 @@ blockNNGP_reg <- function(case = "regular", loc, y, X, w, dir.save, n.blocks, nu
   # It depends on the internal representation of the hyperparameters.
   tau.est <- 1 / resf$summary.hyperpar$mean[1]
   sigmasq.est <- exp(-resf$summary.hyperpar$mean[2])
-  phi.est <- 30 - (29) / (1 + exp(resf$summary.hyperpar$mean[3]))
+  phi.est = 1 - 1/(1 + exp(resf$summary.hyperpar$mean[3]))
   summary.theta <- c(tau.est, sigmasq.est, phi.est)
 
   summary.theta <- c(tau.est, sigmasq.est, phi.est)

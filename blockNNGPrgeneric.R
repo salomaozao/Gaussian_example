@@ -85,8 +85,13 @@
     require(Matrix)
 
     param <- interpret.theta()
+    #### matern ####
     nu<- 0.5
-    R <- (coords.D*param$phi)^nu/(2^(nu-1)*gamma(nu))*besselK(x=coords.D*param$phi, nu=nu)
+    R <- (sqrt(2*nu)*D/phi)^nu/(2^(nu-1)*gamma(nu))*besselK(x=sqrt(2*nu)*D/phi, nu=nu)
+
+    #### powered exponential ####
+    #R <- exp((-1) * (D / phi)^alpha)
+
     diag(R) <- 1
     C <- param$sigmasq*R
 
